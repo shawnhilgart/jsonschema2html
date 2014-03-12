@@ -1,0 +1,17 @@
+{
+    "id":"sub-schema",
+    "type":"object",
+    "properties":{
+        "shawn":{
+            "type":"object",
+            "anyOf":[
+                {"$ref":"#defintions/claxon"}
+            ]
+        }
+    },
+    "defintions":{
+        "claxon":{
+
+        }
+    }
+}

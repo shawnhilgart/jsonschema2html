@@ -1,0 +1,11 @@
+<div class="select-holder">
+{{#if label}}<label for='{{id}}'>{{label}}{{#if required}} <small>*required</small>{{/if}}</label>{{/if}}
+<select name='{{name}}' id='{{id}}' class="{{class}}" {{#if required}}required{{/if}}>
+	{{#if message}}<option value>{{message}}</option>{{/if}}
+	{{{src}}}
+    {{#datasrc}}
+        <option value="{{key}}" {{#ifEqual ../val key}}selected{{/ifEqual}}>{{value}}</option>
+    {{/ datasrc}}
+</select>
+{{#if pattern}}<small class="error">{{errorMsg}}</small>{{else}}{{#if required}}<small class="error">{{errorMsg}}</small>{{/if}}{{/if}}
+</div>

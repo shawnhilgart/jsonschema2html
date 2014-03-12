@@ -1,0 +1,8 @@
+<div id='image-{{id}}' class="image-cluster">
+	<div class='th'>
+		<img src='{{val}}' width='{{#if options.imageWidth}}{{options.imageWidth}}{{else}}150{{/if}}' />
+	</div>
+	<input type='hidden' name='{{name}}' id='{{id}}' value='{{val}}' class="{{form.options.class}}" />
+	<div class='button secondary small remove-image' data-key='{{name}}' data-id="{{id}}" data-src='{{id}}-nodata' data-dest='image-{{id}}' value='remove image'/><i class='general foundicon-minus'></i> Replace Image
+	</div>
+</div>

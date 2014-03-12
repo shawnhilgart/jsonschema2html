@@ -1,0 +1,39 @@
+{
+    "id":"Sample Schema",
+    "type":"object",
+    "properties":{
+        "item":{
+            "title":"Item",
+            "type":"object",
+            "anyOf":[
+                { "$ref": "#/definitions/diskDevice" },
+                { "$ref": "sub.schema.json" },
+                { "$ref": "#/definitions/nfs" },
+                { "$ref": "#/definitions/tmpfs" }
+            ],
+            "properties":{
+                "prop1":{
+                    "type":"string"
+                }
+            }
+        },
+        "title":{
+            "title":"title",
+            "type":"string",
+            "options":{
+                "datasrc":"external*http://google.com",
+                "format":"selectlist",
+                "renderAs":"custom"
+            },
+            "comments":[
+                "Should not break"
+            ]
+        }
+    },
+     "definitions": {
+        "diskDevice": {},
+        "diskUUID": {},
+        "nfs": {},
+        "tmpfs": {}
+    }
+}

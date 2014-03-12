@@ -1,0 +1,31 @@
+{
+	"id":"Sample Schema",
+	"type":"object",
+	"properties":{
+		"item":{
+			"title":"Item",
+			"type":"object",
+            "properties":{
+                "prop1":{
+                    "type":"string"
+                }
+            }
+		},
+		"title":{
+			"title":"title",
+            "type":"string",
+			"options":{
+				"format":"selectlist",
+				"renderAs":"custom"
+			},
+			"comments":[
+				"Should not break"
+			]
+		}
+	},
+    "definitions":{
+        "ref":{
+            
+        }
+    }
+}

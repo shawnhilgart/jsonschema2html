@@ -1,0 +1,7 @@
+<div id='image-{{id}}'>
+    <a href='{{val}}' >{{val}}</a>
+	
+	<input type='hidden' name='{{key}}{{#if short}}[{{short}}]{{/if}}' id='{{id}}' value='{{val}}' class="{{form.options.class}}" />
+	<div class='button secondary small remove-image' data-key='{{key}}' data-src='image-{{id}}-nodata' data-dest='image-{{id}}' value='remove image'/><i class='general foundicon-minus'></i> Replace Image
+	</div>
+</div>

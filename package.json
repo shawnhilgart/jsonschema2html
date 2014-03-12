@@ -1,0 +1,37 @@
+{
+  "name": "jsonschema2html",
+  "preferGlobal": false,
+  "version": "0.1.1",
+  "author": "Shawn Hilgart <shawn@wcst.com>",
+  "description": "Javascript Utility for rendering html forms based on a JSON Schema.",
+  "private":false,
+  "test": "make test",
+  "contributors": [ 
+    {
+      "name": "Shawn Hilgart",
+      "email": "shawn@wcst.com"
+    } 
+  ],
+  "main": "./lib/schema2html",
+  "keywords": [],
+  "dependencies" : {
+    "handlebars":"~2.0.0",
+    "async":"*",
+    "lodash":"*",
+    "request":"*"
+  },
+  "analyze": false,
+  "devDependencies": {
+    "mocha":"*",
+    "benchmark":"*"
+  },
+  "bundledDependencies": [
+  ],  
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8"
+  },
+  "scripts":{
+    "test":"mocha"
+  }
+}

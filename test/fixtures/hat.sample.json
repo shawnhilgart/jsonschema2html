@@ -1,0 +1,160 @@
+{
+    "id":"hat",
+    "type":"object",
+    "form":{
+        "class":"large-12"
+    },
+    "title":"Hat",
+    "properties":{
+        "hatName":{
+            "title":"Hat Name",
+            "type":"string",
+            "required":true,
+            "form":{
+                "pattern":"alpha_numeric",
+                "errorMsg":"Hat Name is required."
+            }
+        },
+        "hash":{
+            "title":"URL Hash",
+            "type":"string",
+            "form":{
+                "pattern":"alpha",
+                "format":"stringHash",
+                "prefix":"optimo.com/collection/",
+                "errorMsg":"URL hash should contain alpha numeric characters only"
+            }
+        },
+        "published":{
+            "title":"Published?",
+            "type":"string",
+            "datasrc":"json*yesno",
+            "dataJson":[
+                {"key":0,"value":"No"},
+                {"key":1,"value":"Yes"}
+            ]
+        },
+        "swatchId":{
+            "title":"Swatch",
+            "type":"string",
+            "datasrc":"internal*/api/v1/swatches-list",
+            "required":true,
+            "form":{
+                "message":"Choose a Swatch",
+                "errorMsg":"Swatch is required"
+            }
+        },
+        "materialId":{
+            "title":"Material",
+            "type":"string",
+            "options":{
+                "datasrc":"http://optimo.com/api/v1/materials-list",
+                "format":"selectList"
+            }
+        },
+        "styleId":{
+            "title":"Style",
+            "type":"string",
+            "options":{
+                "datasrc":"internal:///api/v1/styles-list",
+                "format":"selectList"
+            }
+        },
+        "location":{
+            "title":"location",
+            "$ref":"http://json-schema.org/geo"
+        },
+        "fields":{
+            "type":"object",
+            "properties":{
+                "hatDescription":{
+                    "title":"Hat Description",
+                    "type":"string",
+                    "form":{
+                        "format":"textarea"
+                    }
+                },
+                "kyle":{
+                    "title":"Kyles Field",
+                    "type":"string",
+                    "form":{
+                        "format":"textarea"
+                    }
+                },
+                "hatSubHeadline":{
+                    "title":"Hat Headline",
+                    "type":"string",
+                    "form":{
+                    }
+                },
+                "occasions":{
+                    "title":"Occasions",
+                    "form":{
+                        "class":"large-6",
+                        "addlabel":"Add Another Occasion"
+                    },
+                    "type":"array",
+                    "minItems":1,
+                    "items":{
+                        "type":"object",
+                        "properties":{
+                            "occasionId":{
+                                "type":"string",
+                                "datasrc":"internal*/api/v1/occasions-list"
+                            }
+                        }
+                        
+                    }
+                },
+                "hatThumbnail":{
+                    "type":"object",
+                    "title":"Hat Thumbnail",
+                     "form":{
+                        "class":"thumb-upload"
+                    },
+                    "properties":{
+                        "original":{
+                            "type":"string",
+                            "form":{
+                                "format":"image",
+                                "class":"thumb-upload"
+                            }
+                        }
+                    }
+                    
+                },
+                "hatImages":{
+                    "type":"array",
+                    "minItems":1,
+                    "maxItems":2,
+                    "title":"Hat Images",
+                     "form":{
+                        "options":{
+                            "class":"thumb-upload"
+                        }
+                    },
+                    "items":{
+                        "type":"object",
+                        "form":{
+                            "class":"upload"
+                        },
+                        "properties":{ 
+                            "original":{
+                                "type":"string",
+                                "form":{
+                                    "format":"image",
+                                    "class":"thumb-upload"
+                                }
+                            },
+                             "alt":{
+                                "type":"string",
+                                "title":"Alt Text"
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,4 @@
+<form method='POST' action='{{endpoint}}' enctype='multipart/form-data' id="{{id}}">
+{{#ifEqual method "PUT"}}
+<input type='hidden' name='_method' value='PUT' />
+{{/ifEqual}}
