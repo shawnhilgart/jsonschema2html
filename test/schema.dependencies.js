@@ -241,6 +241,20 @@ describe('SchemaDependencies', function() {
             });
         });
 
+         it('Should callback with result property set', function(done) {
+            var schema = {
+                $ref: './fixtures/sample.two.json'
+            };
+            var q = new FQueue();
+            var dependencies = new SchemaDependencies(__dirname);
+            dependencies.dependencyLoopProperty(schema, schema, q, function(err, result) {
+
+                assert.equal(err, null);
+                assert.equal(result.type, 'object');
+                done();
+            });
+        });
+
         it('Should callback with result property set', function(done) {
             var schema = {
                 options: {
@@ -316,6 +330,25 @@ describe('SchemaDependencies', function() {
                         {$ref: './fixtures/sample.two.json'},
                         {$ref: './fixtures/sample.two.json'}
                     ]
+                }
+            };
+
+            var dependencies = new SchemaDependencies(__dirname);
+            dependencies.resolveDependencies(schema, function(err, result) {
+                assert.notEqual(result, null);
+                assert.equal(err, null);
+                done();
+            });
+        });
+
+        it('Should return error', function(done) {
+            var schema = {
+                type: 'object',
+                property: {
+                    myProp:{ 
+                        type: 'object',
+                        $ref: 'fixtures/badpath/sample.two.json'
+                    }
                 }
             };
 
