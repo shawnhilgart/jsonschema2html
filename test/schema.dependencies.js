@@ -121,9 +121,8 @@ describe('SchemaDependencies', function() {
         it('Should callback with data', function(done) {
             var dependencies = new SchemaDependencies(__dirname);
 
-            dependencies.resolveDataDependency('file://fixtures/hat.sample.json', function(err, cached, result) {
+            dependencies.resolveDataDependency('file://fixtures/hat.sample.json', function(err, result) {
                 assert.equal(err, null);
-                assert.equal(cached, false);
                 assert.equal(result.type, 'object');
                 done();
             });
@@ -133,9 +132,8 @@ describe('SchemaDependencies', function() {
         it('Should callback with data', function(done) {
             var dependencies = new SchemaDependencies(__dirname);
 
-            dependencies.resolveDataDependency('http://json-schema.org/geo', function(err, cached, result) {
+            dependencies.resolveDataDependency('http://json-schema.org/geo', function(err, result) {
                 assert.equal(err, null);
-                assert.equal(cached, false);
                 assert.equal(result.type, 'object');
                 done();
             });
@@ -145,9 +143,8 @@ describe('SchemaDependencies', function() {
         it('Should callback with an error, we have no way to resolve the file', function(done) {
             var dependencies = new SchemaDependencies(__dirname);
 
-            dependencies.resolveDataDependency('bad://json-schema.org/geo', function(err, cached, result) {
+            dependencies.resolveDataDependency('bad://json-schema.org/geo', function(err, result) {
                 assert.notEqual(err, null);
-                assert.equal(cached, false);
                 assert.equal(result, null);
                 done();
             });
@@ -287,10 +284,10 @@ describe('SchemaDependencies', function() {
                     {$ref: './fixtures/sample.two.json'}
                 ]
             };
-            var q = new FQueue();
+
             var dependencies = new SchemaDependencies(__dirname);
             dependencies.resolveDependencies(schema, function(err, result) {
-
+                assert.notEqual(result, null);
                 assert.equal(err, null);
                 done();
             });
@@ -300,10 +297,10 @@ describe('SchemaDependencies', function() {
             var schema = {
                 type: 'array'
             };
-            var q = new FQueue();
+
             var dependencies = new SchemaDependencies(__dirname);
             dependencies.resolveDependencies(schema, function(err, result) {
-
+                assert.notEqual(result, null);
                 assert.equal(err, null);
                 done();
             });
@@ -313,8 +310,8 @@ describe('SchemaDependencies', function() {
         it('Should resolve dependencies', function(done) {
             var schema = {
                 type: 'array',
-                items:{
-                    type:'object',
+                items: {
+                    type: 'object',
                     anyOf: [
                         {$ref: './fixtures/sample.two.json'},
                         {$ref: './fixtures/sample.two.json'}
@@ -322,11 +319,9 @@ describe('SchemaDependencies', function() {
                 }
             };
 
-            var q = new FQueue();
             var dependencies = new SchemaDependencies(__dirname);
             dependencies.resolveDependencies(schema, function(err, result) {
-                console.log(dependencies.dependencyCache);
-
+                assert.notEqual(result, null);
                 assert.equal(err, null);
                 done();
             });
