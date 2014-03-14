@@ -231,6 +231,7 @@ describe('Schema2html', function() {
 
     });
 
+    /*
     describe('.resolveSchemaDependency', function() {
 
         it('Should resolve a single dependency', function(done) {
@@ -265,6 +266,7 @@ describe('Schema2html', function() {
         });
 
     });
+*/
 
 
 

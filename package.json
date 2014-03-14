@@ -4,6 +4,10 @@
   "version": "0.1.1",
   "author": "Shawn Hilgart <shawn@wcst.com>",
   "description": "Javascript Utility for rendering html forms based on a JSON Schema.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shawnhilgart/jsonschema2html.git"
+  },
   "private":false,
   "test": "make test",
   "contributors": [ 

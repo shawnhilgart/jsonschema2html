@@ -21,7 +21,6 @@
             "title":"title",
             "type":"string",
             "options":{
-                "datasrc":"external*http://google.com",
                 "format":"selectlist",
                 "renderAs":"custom"
             },
