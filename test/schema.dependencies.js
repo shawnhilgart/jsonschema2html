@@ -168,7 +168,7 @@ describe('SchemaDependencies', function() {
             var q = new FQueue();
             var dependencies = new SchemaDependencies(__dirname);
 
-            dependencies.dependencyLoopAnyOf(schema, schema, q, function(err, result) {
+            dependencies.dependencyLoopAnyOf(schema.anyOf, schema, q, function(err, result) {
 
                 assert.equal(err, null);
                 assert.equal(result, null);
@@ -186,7 +186,7 @@ describe('SchemaDependencies', function() {
             };
             var q = new FQueue();
             var dependencies = new SchemaDependencies(__dirname);
-            dependencies.dependencyLoopAnyOf(schema, schema, q, function(err, result) {
+            dependencies.dependencyLoopAnyOf(schema.anyOf, schema, q, function(err, result) {
 
                 assert.notEqual(err, null);
                 assert.equal(result, null);
@@ -204,7 +204,7 @@ describe('SchemaDependencies', function() {
             };
             var q = new FQueue();
             var dependencies = new SchemaDependencies(__dirname);
-            dependencies.dependencyLoopAnyOf(schema, schema, q, function(err, result) {
+            dependencies.dependencyLoopAnyOf(schema.anyOf, schema, q, function(err, result) {
                 assert.notEqual(err, null);
                 assert.equal(result, null);
                 //assert.equal(result.type,'object');
@@ -308,6 +308,30 @@ describe('SchemaDependencies', function() {
                 done();
             });
         });
+
+
+        it('Should resolve dependencies', function(done) {
+            var schema = {
+                type: 'array',
+                items:{
+                    type:'object',
+                    anyOf: [
+                        {$ref: './fixtures/sample.two.json'},
+                        {$ref: './fixtures/sample.two.json'}
+                    ]
+                }
+            };
+
+            var q = new FQueue();
+            var dependencies = new SchemaDependencies(__dirname);
+            dependencies.resolveDependencies(schema, function(err, result) {
+                console.log(dependencies.dependencyCache);
+
+                assert.equal(err, null);
+                done();
+            });
+        });
+
     });
 
 
