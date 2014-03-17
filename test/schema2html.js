@@ -211,6 +211,22 @@ describe('Schema2html', function() {
 
         });
 
+         it('Should return fully rendered html for hat.sample.json', function(done) {
+
+            var schema = require('./fixtures/hat.sample.json')
+            var parser = new Schema2html(schema);
+
+            parser.buildForm(function(err, data) {
+                console.log(err);
+                assert.equal(err, null);
+                assert.notEqual(data, null);
+                assert.equal(new RegExp('<form').test(data), true);
+                assert.equal(new RegExp("<\/form").test(data), true);
+                done();
+            });
+
+        });
+
         it('Should return an error', function(done) {
 
             var schema = {
