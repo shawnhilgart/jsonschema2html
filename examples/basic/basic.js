@@ -4,7 +4,7 @@
     Renders html with pre populated values based on sample.schema.json
  */
 
-var Schama2Html = require('../../lib/schema2html');
+var Schema2Html = require('../../lib/schema2html');
 var sampleJson = require('./sample.schema.json');
 var http = require('http');
 
@@ -12,9 +12,23 @@ var http = require('http');
 
 
 http.createServer(function (req, res) {
-  var parser = new Schama2Html(sampleJson, {firstName:"Shawn", lastName:"Hilgart",age:28});
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  parser.buildForm(function(err, html) {
-        res.end(html);
-  });
+
+var schema = {
+    "id":"sample",
+    "type":"object",
+    "properties":{
+        "author":{
+            "type":"string"
+        },
+        "bookTitle":{
+            "type":"string"
+        }
+    }
+
+}
+
+var parser = new Schema2Html(schema, null, null);
+    parser.buildForm(function(err, html) {
+        console.log(html);
+    }); 
 }).listen(3000);
