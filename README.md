@@ -1,4 +1,62 @@
 jsonschema2html
 ===============
 
-Javascript Utility for rendering html forms based on a Json Schema.
+**Library is still under active development, do not use in production**
+
+## Overview
+
+Schema2Html is a Javascript utility for rendering html forms based on a JSON Schema file. 
+
+## Dependency Resolution
+
+The Parser can resolve dependencies on other schema files via http, https, definitions and local fs. Dependencies are first scanned and loaded into a dependency cache before the form is output, html will not be output if an unresolved dependency is met.
+
+## Usage
+
+### Basic Example
+
+In the following example we use the default schema parser settings to output a simple form.
+
+```
+var Schema2Html = require('schema2html');
+var schema = {
+    "id":"sample",
+    "type":"object",
+    "properties":{
+        "author":{
+            "type":"string"
+        },
+        "bookTitle":{
+            "type":"string"
+        }
+    }
+
+}
+
+var parser = new Schema2Html(schema, null, null);
+parser.buildForm(function(err, html) {
+    console.log(html);
+}); 
+
+```
+
+### Outputs
+
+```
+<form method='POST' action='' enctype='multipart/form-data' id="sample">
+<div id='group-sample' class="">
+    <h2></h2>
+    <div>
+        <label for='author'>author </label>
+        <input type='text' name='author' id='author' value='' class="" />
+    </div>
+    <div>
+        <label for='booktitle'>bookTitle </label>
+        <input type='text' name='bookTitle' id='booktitle' value='' class="" />
+    </div>
+</div> 
+<input type="submit" value="Save" class="button form-save-button" /> 
+</form>
+
+```
+
