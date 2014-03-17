@@ -5,11 +5,11 @@
         "shawn":{
             "type":"object",
             "anyOf":[
-                {"$ref":"#defintions/claxon"}
+                {"$ref":"#/definitions/claxon"}
             ]
         }
     },
-    "defintions":{
+    "definitions":{
         "claxon":{
 
         }

@@ -11,6 +11,15 @@
                 }
             }
 		},
+        "num":{
+            "type":"number"
+        },
+        "int":{
+            "type":"integer"
+        },
+        "bool":{
+            "type":"boolean"
+        },
 		"title":{
 			"title":"title",
             "type":"string",
@@ -21,7 +30,10 @@
 			"comments":[
 				"Should not break"
 			]
-		}
+		},
+        "ref":{
+            "$ref":"#/definitions/ref"
+        }
 	},
     "definitions":{
         "ref":{

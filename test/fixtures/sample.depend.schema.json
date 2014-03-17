@@ -7,7 +7,7 @@
             "type":"object",
             "anyOf":[
                 { "$ref": "#/definitions/diskDevice" },
-                { "$ref": "sub.schema.json" },
+                { "$ref": "fixtures/sub.schema.json" },
                 { "$ref": "#/definitions/nfs" },
                 { "$ref": "#/definitions/tmpfs" }
             ],
