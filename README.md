@@ -11,6 +11,13 @@ Schema2Html is a Javascript utility for rendering html forms based on a JSON Sch
 
 The Parser can resolve dependencies on other schema files via http, https, definitions and local fs. Dependencies are first scanned and loaded into a dependency cache before the form is output, html will not be output if an unresolved dependency is met.
 
+## Form Packs/Rendering
+
+The Parsed accepts an options pack attribute that can be used to modify the output of the parser, a few examples can be seen below.
+
+* https://github.com/shawnhilgart/jsonschema2html-handlebars-pack
+* https://github.com/shawnhilgart/jsonschema2html-txt-pack
+
 ## Usage
 
 ### Basic Example
@@ -18,7 +25,7 @@ The Parser can resolve dependencies on other schema files via http, https, defin
 In the following example we use the default schema parser settings to output a simple form.
 
 ```
-var Schema2Html = require('schema2html');
+var Schema2Html = require('jsonschema2html');
 var schema = {
     "id":"sample",
     "type":"object",
