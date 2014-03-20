@@ -65,7 +65,7 @@ describe('Schema2html', function() {
 
             var parser = new Schema2html();
 
-            parser.renderGroupOpen('id', 3, function(err, result) {
+            parser.renderGroupOpen('id', 3, 1, function(err, result) {
                 assert.equal(err, null);
                 assert.notEqual(result, null);
                 done();
@@ -112,7 +112,7 @@ describe('Schema2html', function() {
 
             var parser = new Schema2html();
 
-            parser.renderGroupClose(function(err, result) {
+            parser.renderGroupClose({},function(err, result) {
                 assert.equal(err, null);
                 assert.notEqual(result, null);
                 done();
@@ -217,7 +217,6 @@ describe('Schema2html', function() {
             var parser = new Schema2html(schema);
 
             parser.buildForm(function(err, data) {
-                console.log(err);
                 assert.equal(err, null);
                 assert.notEqual(data, null);
                 assert.equal(new RegExp('<form').test(data), true);
