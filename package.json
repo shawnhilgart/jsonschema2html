@@ -1,7 +1,7 @@
 {
   "name": "jsonschema2html",
   "preferGlobal": false,
-  "version": "0.1.1",
+  "version": "0.1.3",
   "author": "Shawn Hilgart <shawn@wcst.com>",
   "description": "Javascript Utility for rendering html forms based on a JSON Schema.",
   "repository": {
