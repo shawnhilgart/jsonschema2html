@@ -13,7 +13,7 @@ The Parser can resolve dependencies on other schema files via http, https, defin
 
 ## Form Packs/Rendering
 
-The Parsed accepts an options pack attribute that can be used to modify the output of the parser, a few examples can be seen below.
+The Parsed accepts an options pack attribute that can be used to modify the output of the parser, a few examples can be seen below. An explanation of the form pack concept can be found at [Building A Form Pack](https://github.com/shawnhilgart/jsonschema2html/wiki/Building-A-Form-Pack)
 
 * https://github.com/shawnhilgart/jsonschema2html-handlebars-pack
 * https://github.com/shawnhilgart/jsonschema2html-txt-pack
