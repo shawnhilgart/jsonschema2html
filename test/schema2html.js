@@ -237,6 +237,7 @@ describe('Schema2html', function() {
             var parser = new Schema2html(schema);
 
             parser.buildForm(function(err, data) {
+                
                 assert.notEqual(err, null);
                 assert.equal(data, null);
                 done();
